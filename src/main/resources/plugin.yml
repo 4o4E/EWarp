@@ -1,0 +1,56 @@
+name: EWarp
+version: "${version}"
+main: com.e404.warp.EWarp
+api-version: 1.13
+authors: [ 404E ]
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - BentoBox
+  - Multiverse-Core
+commands:
+  ewarp:
+    description: "插件主命令"
+    aliases:
+      - ew
+  ewarpadmin:
+    description: "插件管理主命令"
+    permission: ewarp.admin
+    aliases:
+      - ewa
+permissions:
+  ewarp.admin:
+    default: op
+    description: |-
+      允许使用插件管理指令
+
+  ewarp.use:
+    default: true
+    description: |-
+      允许查看, 使用对自己可见的warp(自己创建/信任)
+
+  ewarp.edit:
+    default: true
+    description: |-
+      允许新建, 修改, 删除, 变更可见性
+      仅对自己创建的warp可用
+
+  ewarp.trust:
+    default: true
+    description: |-
+      允许添加和删除信任者
+      指令 trust, untrust, padd, pdel 用到此权限
+
+  ewarp.limit.*:
+    default: op
+    description: "允许创建无限数量的warp"
+
+  ewarp.bypass.price:
+    default: op
+    description: "允许跳过经济消耗"
+  ewarp.bypass.warmup:
+    default: op
+    description: "允许跳过传送预热"
+  ewarp.bypass.cooldown:
+    default: op
+    description: "允许跳过传送冷却"

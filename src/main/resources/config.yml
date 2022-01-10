@@ -1,0 +1,97 @@
+# 玩家能够创建的上限, 设置为 -1 以禁用上限
+# 会在在权限节点 `ewarp.limit.数量` 和 `以下数值` 中选择较大的
+limit: 3
+# 允许创建的最小高度
+min_height: -64
+# 允许创建的最大高度
+max_height: 320
+
+# 允许的名字正则(!!!如果不知道你在改什么, 请不要动他!!!)
+name_regex: "[a-zA-Z0-9-_\u4e00-\u9fa5]{1,15}"
+
+# 传送设置
+teleport:
+  # 预热 - 传送之前的等待时长(单位毫秒)
+  # 设置为 -1 以禁用
+  warmup: 3000
+  # 冷却 - 两次传送的间隔时长(单位毫秒)
+  # 设置为 -1 以禁用
+  cooldown: 30000
+
+# 价格设置
+# 最终价格 = start + every * warp数量
+price:
+  # 设置为true以启用经济消耗
+  enable: true
+
+  # 价格算法
+  start: 1000
+  every: 1000
+
+  # 移除时返还的百分比, 设置为100则全额返还, 设置为0则不返还
+  return: 75
+
+# 禁止创建的世界(禁止在此世界中创建warp)
+disable_create:
+  - example
+
+# 禁止使用的世界(禁止使用warp离开此世界)
+disable_use:
+  - example
+
+# 与其他插件的hook
+hook:
+
+  # 经济挂钩
+  Vault:
+    # 设置为true以启用
+    enable: true
+
+  # 岛屿挂钩
+  BentoBox:
+    # 设置为true以启用
+    # 启用后会限制玩家只能在自己的岛屿上创建warp
+    enable: true
+    # 创建warp需要的身份(若上面)
+    # 岛主 = 1000
+    # 副岛主 = 900
+    # 成员 = 500
+    # 信任者 = 400
+    # 合作者 = 200
+    # 访问者 = 0
+    # 封禁者 = -1
+    rank: 400
+
+  # 多世界挂钩
+  Multiverse-Core:
+    # 启用后世界名字会被替换成多世界插件设置中的世界名字
+    enable: true
+
+  # %ewarp_max% - 创建上限(若不受限制则返回-1)
+  # %ewarp_max_parse% - 创建上限(若不受限制则返回'∞')
+  # %ewarp_exist% - 已创建数量
+  # %ewarp_price% - 下一个创建的价格
+  #
+  # %ewarp_{name}_owner% - 对应warp的创建者
+  # %ewarp_{name}_price% - 对应warp的创建价格
+  # %ewarp_{name}_x% - 对应warp的x坐标
+  # %ewarp_{name}_y% - 对应warp的y坐标
+  # %ewarp_{name}_z% - 对应warp的z坐标
+  # %ewarp_{name}_pitch% - 对应warp的pitch(俯仰角)
+  # %ewarp_{name}_yaw% - 对应warp的yaw(方向)
+  # %ewarp_{name}_public% - 对应warp的状态
+  # %ewarp_{name}_public_{1}_{2}% - 对应warp的状态, 若公开则返回{1}否则{2}
+  # %ewarp_{name}_world% - 对应warp的世界名字
+  # %ewarp_{name}_world_parse% - 对应warp的multiverse世界名字
+  # %ewarp_{name}_date% - 对应warp的创建日期
+  # %ewarp_{name}_date_{日期格式}% - 对应warp的创建日期并格式化
+  # %ewarp_{name}_trusts% - 对应warp的信任者列表(分隔符',')
+  # %ewarp_{name}_trusts_{分隔符}% - 对应warp的信任者列表(自定义分隔符)
+  # 占位符挂钩
+  PlaceholderAPI:
+    # 启用后支持papi
+    enable: true
+
+  # 领地挂钩
+  # 计划中
+  Residence: true
