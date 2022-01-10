@@ -57,13 +57,11 @@
 ```yaml
 ewarp.admin:
   default: op
-  description: |-
-    允许使用插件管理指令
+  description: 允许使用插件管理指令
 
 ewarp.use:
   default: true
-  description: |-
-    允许查看, 使用对自己可见的warp(自己创建/信任)
+  description: 允许查看, 使用对自己可见的warp(自己创建/信任)
 
 ewarp.edit:
   default: true
@@ -79,17 +77,17 @@ ewarp.trust:
 
 ewarp.limit.*:
   default: op
-  description: "允许创建无限数量的warp"
+  description: 允许创建无限数量的warp
 
 ewarp.bypass.price:
   default: op
-  description: "允许跳过经济消耗"
+  description: 允许跳过经济消耗
 ewarp.bypass.warmup:
   default: op
-  description: "允许跳过传送预热"
+  description: 允许跳过传送预热
 ewarp.bypass.cooldown:
   default: op
-  description: "允许跳过传送冷却"
+  description: 允许跳过传送冷却
 ```
 
 ## 占位符
