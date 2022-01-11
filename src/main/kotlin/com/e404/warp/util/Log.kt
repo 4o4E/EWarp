@@ -1,11 +1,12 @@
 package com.e404.warp.util
 
 import com.e404.boom.util.sendToOperatorWithPrefix
-import org.slf4j.LoggerFactory
+import java.util.logging.Level
+import java.util.logging.Logger
 
 object Log {
     @JvmStatic
-    private val log = LoggerFactory.getLogger("EWarp")
+    private val log = Logger.getLogger("EWarp")
 
     @JvmStatic
     fun String.color() = this.replace("&", "§")
@@ -15,8 +16,8 @@ object Log {
 
     @JvmStatic
     fun warn(s: String, throwable: Throwable? = null) {
-        if (throwable != null) log.warn("&c$s".color(), throwable)
-        else log.warn("&c$s".color())
+        if (throwable != null) log.log(Level.WARNING, "&c$s".color(), throwable)
+        else log.log(Level.WARNING, "&c$s".color())
         noticeOp(s)
     }
 
