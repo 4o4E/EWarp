@@ -98,6 +98,7 @@ ewarp.bypass.cooldown:
 2. %ewarp_max_parse% - 创建上限(若不受限制则返回'∞')
 3. %ewarp_exist% - 已创建数量
 4. %ewarp_price% - 下一个创建的价格
+5. %ewarp_list% - 玩家已创建的warp列表
 
 ### 对应warp名字的
 
@@ -116,6 +117,12 @@ ewarp.bypass.cooldown:
 13. %ewarp_{name}_date_{日期格式}% - 对应warp的创建日期并格式化，默认格式 yyyy.MM.dd HH:mm:ss
 14. %ewarp_{name}_trusts% - 对应warp的信任者列表，默认分隔符','
 15. %ewarp_{name}_trusts_{分隔符}% - 对应warp的信任者列表(自定义分隔符)
+
+## 计划中
+
+1. 支持更多的papi
+2. 支持根据私有和公开展示不同的颜色
+3. 通过github检查更新
 
 ## bstats
 

@@ -7,7 +7,7 @@ import com.e404.warp.hook.EconHook
 import com.e404.warp.util.Log.color
 import com.e404.warp.warp.WarpManager
 import com.e404.warp.warp.`return`
-import com.e404.warp.warp.addCanEdit
+import com.e404.warp.warp.addOwner
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
@@ -47,7 +47,7 @@ object Delete : AbstractCommand(
         args: Array<out String>,
         complete: MutableList<String>,
     ) {
-        if (args.size == 2) complete.addCanEdit(sender)
+        if (args.size == 2) complete.addOwner(sender)
     }
 
     override fun help() = "&a/ew del <名字>&f - 删除warp".color()

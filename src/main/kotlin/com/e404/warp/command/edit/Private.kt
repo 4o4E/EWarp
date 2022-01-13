@@ -4,7 +4,7 @@ import com.e404.boom.util.sendMsgWithPrefix
 import com.e404.warp.command.AbstractCommand
 import com.e404.warp.util.Log.color
 import com.e404.warp.warp.WarpManager
-import com.e404.warp.warp.addCanEdit
+import com.e404.warp.warp.addOwner
 import org.bukkit.command.CommandSender
 
 object Private : AbstractCommand(
@@ -40,7 +40,7 @@ object Private : AbstractCommand(
     }
 
     override fun onTabComplete(sender: CommandSender, args: Array<out String>, complete: MutableList<String>) {
-        if (args.size == 2) complete.addCanEdit(sender)
+        if (args.size == 2) complete.addOwner(sender)
     }
 
     override fun help() = """&a/ew private <名字>&f - 设置warp为私有

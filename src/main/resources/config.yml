@@ -18,6 +18,10 @@ teleport:
   # 设置为 -1 以禁用
   cooldown: 30000
 
+  # 是否允许乘骑和被乘骑的生物一起带着传送
+  # 设置为true以允许
+  mount: true
+
 # 价格设置
 # 最终价格 = start + every * warp数量
 price:

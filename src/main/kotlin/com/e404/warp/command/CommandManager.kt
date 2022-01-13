@@ -1,5 +1,6 @@
 package com.e404.warp.command
 
+import com.e404.boom.util.instance
 import com.e404.boom.util.isPlayer
 import com.e404.boom.util.sendNoperm
 import com.e404.boom.util.sendUnknow
@@ -94,6 +95,6 @@ object CommandManager : TabExecutor {
         val help = commands
             .filter { it.hasPerm(this) && (!it.mustByPlayer || this is Player) }
             .joinToString("\n") { it.help() }
-        sendMessage("&7-=[ &6EWarp&b by 404E &7]=-\n${help}".color())
+        sendMessage("&7-=[ &6EWarp V${instance().description.version}&b by 404E &7]=-\n${help}".color())
     }
 }

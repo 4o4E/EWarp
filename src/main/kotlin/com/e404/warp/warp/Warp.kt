@@ -149,7 +149,21 @@ class Warp(
                 return
             }
         }
+        // 检查乘骑
+        val mount = config().getBoolean("teleport.mount")
+        val passengers = p.passengers
+        val vehicle = p.vehicle
+        if (!mount
+            && (passengers.isNotEmpty() || vehicle != null)
+        ) {
+            p.sendMsgWithPrefix("&c不允许带着坐骑和被乘骑者传送")
+            return
+        }
+        for (pass in passengers) p.removePassenger(pass)
+        p.leaveVehicle()
         p.teleport(location)
+        for (pass in passengers) p.addPassenger(pass)
+        vehicle?.addPassenger(p)
         cooldown[p] = System.currentTimeMillis()
         p.sendMsgWithPrefix("&f已前往&a${name}")
     }

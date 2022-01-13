@@ -1,6 +1,7 @@
-package com.e404.warp.hook
+package com.e404.warp.placeholder
 
 import com.e404.boom.util.instance
+import com.e404.warp.hook.MultiverseHook
 import com.e404.warp.util.Log
 import com.e404.warp.warp.WarpManager
 import com.e404.warp.warp.count
@@ -54,6 +55,9 @@ object EWarpPlaceholder : PlaceholderExpansion() {
             "price" -> p?.let {
                 if (it.hasPermission("ewarp.limit.*")) "0"
                 else (start() + count(it) * every()).toString()
+            }
+            "list" -> p?.let {
+                "[${WarpManager.getOwner(it).keys.joinToString(",")}]"
             }
             else -> {
                 val split = s.split("_")

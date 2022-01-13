@@ -5,8 +5,8 @@ import com.e404.boom.util.logo
 import com.e404.boom.util.sendAndInfo
 import com.e404.warp.admin.AdminCommandManager
 import com.e404.warp.command.CommandManager
-import com.e404.warp.hook.EWarpPlaceholder
 import com.e404.warp.hook.HookManager
+import com.e404.warp.placeholder.EWarpPlaceholder
 import com.e404.warp.util.Log
 import com.e404.warp.warp.WarpManager
 import org.bstats.bukkit.Metrics
@@ -24,6 +24,7 @@ class EWarp : JavaPlugin() {
             doWarnable("读取默认配置文件", sender, instance::reloadConfig)
             sender.sendAndInfo("&a插件配置加载完成")
             HookManager.hook(sender)
+            sender.sendAndInfo("&a插件重载完成")
         }
     }
 

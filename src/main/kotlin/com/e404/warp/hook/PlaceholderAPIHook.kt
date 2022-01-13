@@ -1,5 +1,6 @@
 package com.e404.warp.hook
 
+import com.e404.warp.placeholder.EWarpPlaceholder
 import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
