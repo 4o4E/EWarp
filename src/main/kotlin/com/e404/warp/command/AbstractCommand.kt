@@ -41,7 +41,7 @@ abstract class AbstractCommand(
      * 检查sender权限
      *
      * @param sender 对象
-     * @return 若无权限则返回true
+     * @return 若sender有所有需要的权限则返回true
      */
     fun hasPerm(sender: CommandSender): Boolean {
         return !permission.any { !sender.hasPermission(it) }

@@ -1,8 +1,8 @@
 package com.e404.warp.placeholder
 
-import com.e404.boom.util.instance
 import com.e404.warp.hook.MultiverseHook
 import com.e404.warp.util.Log
+import com.e404.warp.util.instance
 import com.e404.warp.warp.WarpManager
 import com.e404.warp.warp.count
 import com.e404.warp.warp.every

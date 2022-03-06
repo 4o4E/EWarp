@@ -1,7 +1,7 @@
 package com.e404.warp.hook
 
-import com.e404.boom.util.config
-import com.e404.boom.util.sendAndInfo
+import com.e404.warp.util.config
+import com.e404.warp.util.sendAndInfo
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 

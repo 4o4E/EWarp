@@ -1,6 +1,5 @@
 package com.e404.warp.util
 
-import com.e404.boom.util.sendToOperatorWithPrefix
 import java.util.logging.Level
 import java.util.logging.Logger
 

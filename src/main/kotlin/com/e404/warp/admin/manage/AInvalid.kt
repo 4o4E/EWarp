@@ -1,8 +1,8 @@
 package com.e404.warp.admin.manage
 
-import com.e404.boom.util.sendMsgWithPrefix
 import com.e404.warp.command.AbstractCommand
 import com.e404.warp.util.Log.color
+import com.e404.warp.util.sendMsgWithPrefix
 import com.e404.warp.warp.WarpManager
 import org.bukkit.command.CommandSender
 

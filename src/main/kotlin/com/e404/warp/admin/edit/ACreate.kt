@@ -1,10 +1,10 @@
 package com.e404.warp.admin.edit
 
-import com.e404.boom.util.config
-import com.e404.boom.util.isPlayer
-import com.e404.boom.util.sendMsgWithPrefix
 import com.e404.warp.command.AbstractCommand
 import com.e404.warp.util.Log.color
+import com.e404.warp.util.config
+import com.e404.warp.util.isPlayer
+import com.e404.warp.util.sendMsgWithPrefix
 import com.e404.warp.warp.Warp
 import com.e404.warp.warp.WarpManager
 import org.bukkit.Bukkit
@@ -33,7 +33,7 @@ object ACreate : AbstractCommand(
                 val p = sender as Player
                 val name = args[1]
                 if (!name.matches(Regex(config().getString("name_regex") ?: "[a-zA-Z0-9-_]{1,15}"))) {
-                    p.sendMsgWithPrefix("&c此名字不合规范")
+                    p.sendMsgWithPrefix("&c名字`$name`不合规范")
                     return
                 }
                 // 检查重复

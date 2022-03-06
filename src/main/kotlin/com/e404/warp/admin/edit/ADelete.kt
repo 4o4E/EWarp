@@ -1,9 +1,9 @@
 package com.e404.warp.admin.edit
 
-import com.e404.boom.util.config
-import com.e404.boom.util.sendMsgWithPrefix
 import com.e404.warp.command.AbstractCommand
 import com.e404.warp.util.Log.color
+import com.e404.warp.util.config
+import com.e404.warp.util.sendMsgWithPrefix
 import com.e404.warp.warp.WarpManager
 import com.e404.warp.warp.`return`
 import com.e404.warp.warp.addAllWarp

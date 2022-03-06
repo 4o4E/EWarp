@@ -1,6 +1,6 @@
 package com.e404.warp.hook
 
-import com.e404.boom.util.instance
+import com.e404.warp.util.instance
 import net.milkbowl.vault.economy.Economy
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player

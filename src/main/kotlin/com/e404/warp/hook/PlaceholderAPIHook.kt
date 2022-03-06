@@ -6,7 +6,7 @@ import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
 
 object PlaceholderAPIHook : AbstractHook("PlaceholderAPI") {
-    private var papi = false
+    var papi = false
     override fun hook(sender: CommandSender?) {
         if (!isHookEnable()) {
             noticeUnhook(sender, "在配置文件中禁用了此hook")

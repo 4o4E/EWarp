@@ -20,10 +20,12 @@ repositories {
     // PlaceholderAPI
     maven(url = "https://repo.extendedclip.com/content/repositories/placeholderapi/")
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot:1.13.2-R0.1-SNAPSHOT")
     // BentBox
     compileOnly("world.bentobox:bentobox:1.19.0-SNAPSHOT")
     // Vault
@@ -33,7 +35,7 @@ dependencies {
     // PlaceholderAPI
     compileOnly("me.clip:placeholderapi:2.11.0")
     // Bstats
-    implementation("org.bstats:bstats-bukkit:2.2.1")
+    implementation("org.bstats:bstats-bukkit:3.0.0")
 }
 
 tasks.withType<KotlinCompile>() {

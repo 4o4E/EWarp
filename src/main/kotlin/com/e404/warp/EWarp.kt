@@ -1,13 +1,14 @@
 package com.e404.warp
 
-import com.e404.boom.util.doWarnable
-import com.e404.boom.util.logo
-import com.e404.boom.util.sendAndInfo
 import com.e404.warp.admin.AdminCommandManager
 import com.e404.warp.command.CommandManager
 import com.e404.warp.hook.HookManager
+import com.e404.warp.hook.PlaceholderAPIHook
 import com.e404.warp.placeholder.EWarpPlaceholder
 import com.e404.warp.util.Log
+import com.e404.warp.util.doWarnable
+import com.e404.warp.util.logo
+import com.e404.warp.util.sendAndInfo
 import com.e404.warp.warp.WarpManager
 import org.bstats.bukkit.Metrics
 import org.bukkit.command.CommandSender
@@ -46,7 +47,7 @@ class EWarp : JavaPlugin() {
     }
 
     override fun onDisable() {
-        EWarpPlaceholder.unregister()
+        if (PlaceholderAPIHook.papi) EWarpPlaceholder.unregister()
         Log.info("&2已成功卸载, 作者404E, 感谢使用")
     }
 }

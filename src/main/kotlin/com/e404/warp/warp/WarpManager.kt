@@ -1,7 +1,7 @@
 package com.e404.warp.warp
 
-import com.e404.boom.util.doWarnable
 import com.e404.warp.EWarp
+import com.e404.warp.util.doWarnable
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.bukkit.Bukkit

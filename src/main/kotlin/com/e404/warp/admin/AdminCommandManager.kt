@@ -1,7 +1,5 @@
 package com.e404.warp.admin
 
-import com.e404.boom.util.isPlayer
-import com.e404.boom.util.sendUnknow
 import com.e404.warp.admin.edit.*
 import com.e404.warp.admin.manage.AInvalid
 import com.e404.warp.admin.manage.Reload
@@ -9,6 +7,8 @@ import com.e404.warp.admin.trust.ATrust
 import com.e404.warp.admin.trust.AUntrust
 import com.e404.warp.admin.use.*
 import com.e404.warp.util.Log.color
+import com.e404.warp.util.isPlayer
+import com.e404.warp.util.sendUnknow
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor
@@ -64,22 +64,18 @@ object AdminCommandManager : TabExecutor {
         alias: String,
         args: Array<out String>,
     ): MutableList<String> {
+        val list = ArrayList<String>()
         val size = args.size // 最小只会为1
         val head = args[0]
-        val list = ArrayList<String>()
-        for (c in commands) {
-            // 匹配指令头
-            if (c.matchHead(head)) {
-                // 此指令只能由玩家执行 && 执行者不是玩家
-                if (c.mustByPlayer && sender !is Player) continue
-                // 接管长度为1的指令的tab补全
-                if (size == 1) {
-                    list.add(c.name)
-                    continue
-                }
-                // 传递给指令
-                c.onTabComplete(sender, args, list)
-            }
+        val canUse = commands.filter { it.hasPerm(sender) }
+        // 接管长度为1的指令的tab补全
+        if (size == 1) return canUse.map { it.name }.toMutableList()
+        // 匹配指令头
+        for (c in canUse) if (c.matchHead(head)) {
+            // 此指令只能由玩家执行 && 执行者不是玩家
+            if (c.mustByPlayer && sender !is Player) continue
+            // 传递给指令
+            c.onTabComplete(sender, args, list)
         }
         return list
     }

@@ -1,9 +1,5 @@
 package com.e404.warp.command
 
-import com.e404.boom.util.instance
-import com.e404.boom.util.isPlayer
-import com.e404.boom.util.sendNoperm
-import com.e404.boom.util.sendUnknow
 import com.e404.warp.command.edit.*
 import com.e404.warp.command.trust.Padd
 import com.e404.warp.command.trust.Pdel
@@ -12,6 +8,10 @@ import com.e404.warp.command.trust.Untrust
 import com.e404.warp.command.use.*
 import com.e404.warp.command.use.List
 import com.e404.warp.util.Log.color
+import com.e404.warp.util.instance
+import com.e404.warp.util.isPlayer
+import com.e404.warp.util.sendNoperm
+import com.e404.warp.util.sendUnknow
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor

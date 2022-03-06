@@ -1,10 +1,12 @@
 package com.e404.warp.warp
 
-import com.e404.boom.util.config
-import com.e404.boom.util.sendMsgWithPrefix
 import com.e404.warp.EWarp
 import com.e404.warp.hook.MultiverseHook
+import com.e404.warp.util.Log
 import com.e404.warp.util.Log.color
+import com.e404.warp.util.config
+import com.e404.warp.util.instance
+import com.e404.warp.util.sendMsgWithPrefix
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.Sound
@@ -134,38 +136,44 @@ class Warp(
             p.sendMsgWithPrefix("&c无效warp, 使用&a/ew del ${name}&c以删除")
             return
         }
-        if (!p.hasPermission("ewarp.bypass.warmup")) {
-            val warmup = config().getLong("teleport.warmup")
-            if (warmup >= 0) {
-                val tick = warmup / 50
-                Bukkit.getScheduler().runTaskLater(EWarp.instance, fun() {
-                    cooldown[p] = System.currentTimeMillis()
-                    p.teleport(location)
-                    p.playSound(p.location, Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1f)
-                    p.sendMsgWithPrefix("&f已到达&a${name}")
-                }, tick)
-                val fade = min(tick.toInt() / 4, 60)
-                p.sendTitle("&6请等待${warmup / 1000}秒".color(), "", fade, tick.toInt() - 2 * fade, fade)
-                return
-            }
-        }
         // 检查乘骑
         val mount = config().getBoolean("teleport.mount")
         val passengers = p.passengers
+        Log.info("passengers: $passengers")
         val vehicle = p.vehicle
+        Log.info("vehicle: $vehicle")
         if (!mount
             && (passengers.isNotEmpty() || vehicle != null)
         ) {
             p.sendMsgWithPrefix("&c不允许带着坐骑和被乘骑者传送")
             return
         }
-        for (pass in passengers) p.removePassenger(pass)
-        p.leaveVehicle()
-        p.teleport(location)
-        for (pass in passengers) p.addPassenger(pass)
-        vehicle?.addPassenger(p)
-        cooldown[p] = System.currentTimeMillis()
-        p.sendMsgWithPrefix("&f已前往&a${name}")
+        fun tp() {
+            for (pass in passengers) p.removePassenger(pass)
+            p.leaveVehicle()
+            for (pass in passengers) p.addPassenger(pass)
+            if (vehicle != null) {
+                vehicle.teleport(location)
+                Bukkit.getScheduler().runTaskLater(instance(), fun () {
+                    vehicle.addPassenger(p)
+                }, 20)
+            } else p.teleport(location)
+            cooldown[p] = System.currentTimeMillis()
+            p.playSound(p.location, Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1f)
+            p.sendMsgWithPrefix("&f已到达&a${name}")
+        }
+        if (p.hasPermission("ewarp.bypass.warmup")) {
+            tp()
+            return
+        }
+        val warmup = config().getLong("teleport.warmup")
+        if (warmup >= 0) {
+            val tick = warmup / 50
+            Bukkit.getScheduler().runTaskLater(EWarp.instance, fun() { tp() }, tick)
+            val fade = min(tick.toInt() / 4, 60)
+            p.sendTitle("&6请等待${warmup / 1000}秒".color(), "", fade, tick.toInt() - 2 * fade, fade)
+            return
+        }
     }
 
     /**

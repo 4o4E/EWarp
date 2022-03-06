@@ -1,6 +1,6 @@
 package com.e404.warp.hook
 
-import com.e404.boom.util.sendMsgWithPrefix
+import com.e404.warp.util.sendMsgWithPrefix
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import world.bentobox.bentobox.BentoBox

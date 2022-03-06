@@ -1,6 +1,6 @@
 package com.e404.warp.warp
 
-import com.e404.boom.util.config
+import com.e404.warp.util.config
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
