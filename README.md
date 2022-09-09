@@ -127,6 +127,15 @@ ewarp.bypass.cooldown:
 2. 支持根据私有和公开展示不同的颜色
 3. 通过github检查更新
 
+## 更新日志
+
+```
+2022.01.11 - 1.0.0 发布插件
+2022.01.00 - 1.0.1 兼容至1.8
+2022.03.06 - 1.0.2 修复无PlaceholderAPI时卸载插件报错的问题
+2022.09.09 - 1.0.3 移除调试信息，修复数值为-1时传送无效的问题
+```
+
 ## bstats
 
 ![bstats](https://bstats.org/signatures/bukkit/EWarp.svg)
