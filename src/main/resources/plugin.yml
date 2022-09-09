@@ -1,6 +1,6 @@
 name: EWarp
 version: "${version}"
-main: com.e404.warp.EWarp
+main: top.e404.warp.EWarp
 api-version: 1.13
 authors: [ 404E ]
 softdepend:
